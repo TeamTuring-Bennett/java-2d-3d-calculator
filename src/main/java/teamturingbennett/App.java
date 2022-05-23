@@ -131,8 +131,9 @@ public class App extends Application implements Initializable {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 900, 900);
+        scene = new Scene(loadFXML("primary"), 900, 650);
         stage.setScene(scene);
+        stage.setTitle("Graphing Calculator by Team Turing");
         stage.show();
     }
 
