@@ -17,7 +17,7 @@
    <children>
     <AnchorPane layoutX="600.0" minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="200.0">
          <children>
-            <VBox prefHeight="398.0" prefWidth="183.0">
+            <VBox prefHeight="570.0" prefWidth="183.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#handleXYButtonAction" prefHeight="120.0" prefWidth="193.0" text="y=x" fx:id="xyButton" />
                   <Button mnemonicParsing="false" onAction="#handleXYButton2Action" prefHeight="120.0" prefWidth="207.0" text="y=x-3" fx:id="xyButton2" />
@@ -25,7 +25,7 @@
                   <Button fx:id="squaredButton2" mnemonicParsing="false" onAction="#handleSquaredButton2Action" prefHeight="120.0" prefWidth="232.0" text="y=x^2+2" />
                   <Button fx:id="cubedButton" mnemonicParsing="false" onAction="#handleCubedButtonAction" prefHeight="120.0" prefWidth="236.0" text="y=x^3" />
                   <Button fx:id="cubedButton2" mnemonicParsing="false" onAction="#handleCubedButton2Action" prefHeight="120.0" prefWidth="266.0" text="y=(x-3)^3-1" />
-                  <Button fx:id="clearButton" mnemonicParsing="false" onAction="#handleClearButtonAction" prefHeight="120.0" prefWidth="266.0" text="clear" />
+                  <Button fx:id="clearButton" mnemonicParsing="false" onAction="#handleClearButtonAction" prefHeight="120.0" prefWidth="266.0" text="CLEAR" />
                </children>
             </VBox>
          </children>
