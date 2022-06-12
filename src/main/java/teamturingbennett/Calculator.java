@@ -29,6 +29,7 @@ public class Calculator extends Application {
         stage.initStyle(StageStyle.UNIFIED);
         stage.setTitle("Calculator");
         //stage.getIcons().add(new Image(getClass().getResource("src/main/resources/teamturingbennett/Calculator-icon.png").toExternalForm()));
+        // THIS WON"T WORK I DON'T KNOW WHY
         stage.show();
     }
 

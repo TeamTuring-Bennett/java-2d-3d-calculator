@@ -242,26 +242,11 @@ public class Parser {
                 .replace("÷", "/");     // convert 'pretty' / symbols
     }
 
-    /**
-     * Overloaded eval method to handle variables;
-     * this allows the parser to be used for graphing
-     * mode as well as normal/scientific.
-     * @param exp   the input string to parse
-     * @param vars  the map containing variables & values
-     * @return      the result, as compiled Expression tree
-     */
     public Expression eval(String exp, HashMap<String, Double> vars) {
         this.vars = vars;
         return this.eval(exp);
     }
 
-    /**
-     * Wrapper function to start the process of
-     * evaluating our expression; Follows
-     * basic PE(MD)(AS) operator precedence
-     * @return  the result, as a compiled
-     *          'Expression' Object/Tree
-     */
     public Expression eval(String exp) {
         try {
             this.input = formatInput(exp);
