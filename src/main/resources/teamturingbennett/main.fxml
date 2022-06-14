@@ -245,8 +245,8 @@
                               <RowConstraints minHeight="10.0" percentHeight="50.0" valignment="BASELINE" vgrow="ALWAYS" />
                            </rowConstraints>
                            <children>
-                              <Slider fx:id="posYSlider" blockIncrement="1.0" focusTraversable="false" majorTickUnit="5.0" maxHeight="1.7976931348623157E308" minorTickCount="4" orientation="VERTICAL" snapToTicks="true" value="10.0" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                              <Slider fx:id="negYSlider" blockIncrement="1.0" focusTraversable="false" majorTickUnit="5.0" max="0.0" maxHeight="1.7976931348623157E308" min="-100.0" minorTickCount="4" orientation="VERTICAL" snapToTicks="true" value="-10.0" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                              <Slider fx:id="posYSlider" blockIncrement="1.0" focusTraversable="false" majorTickUnit="5.0" min="1.0" maxHeight="1.7976931348623157E308" minorTickCount="4" orientation="VERTICAL" snapToTicks="true" value="10.0" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                              <Slider fx:id="negYSlider" blockIncrement="1.0" focusTraversable="false" majorTickUnit="5.0" max="-1.0" maxHeight="1.7976931348623157E308" min="-100.0" minorTickCount="4" orientation="VERTICAL" snapToTicks="true" value="-10.0" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                            </children>
                            <StackPane.margin>
                               <Insets bottom="30.0" />
