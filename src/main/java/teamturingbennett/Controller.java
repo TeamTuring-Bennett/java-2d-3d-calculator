@@ -215,7 +215,7 @@ public class Controller implements Initializable {
         // initialize the actual graph/chart
         this.initGraph();
         // select normal mode by default on launch
-        this.modeControl.selectToggle(normToggleButton);
+        this.modeControl.selectToggle(graphToggleButton);
         // ensure we never end up without a mode selected
         modeControl.selectedToggleProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal == null) {
