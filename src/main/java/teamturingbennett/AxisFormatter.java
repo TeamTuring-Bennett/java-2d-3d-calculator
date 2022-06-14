@@ -1,9 +1,3 @@
-/*
-    AxisFormatter.java
-    This class extends StringConverter<Number>
-    to only show integer values, instead of
-    double; this keeps axis labels uniform
- */
 package teamturingbennett;
 
 import javafx.util.StringConverter;

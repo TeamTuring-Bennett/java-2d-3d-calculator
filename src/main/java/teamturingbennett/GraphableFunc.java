@@ -1,8 +1,3 @@
-/*
-    GraphableFunc.java
-    This class is the model for a user input
-    'graphable' function.
- */
 package teamturingbennett;
 
 import javafx.beans.property.SimpleBooleanProperty;
@@ -19,20 +14,13 @@ public class GraphableFunc {
     private final SimpleIntegerProperty index;
     private final XYChart.Series<Double, Double> data;
 
-    /**
-     * Overloaded Constructor:
-     * @param index the table index for the function
-     * @param var   the variable the function is in
-     */
+    
     public GraphableFunc(int index, String var) {
         this(index);
         this.varName.set(var);
     }
 
-    /**
-     * Default constructor:
-     * @param index the table index for the function
-     */
+    
     public GraphableFunc(int index) {
         this.index = new SimpleIntegerProperty(index);
         this.varName = new SimpleStringProperty("x");

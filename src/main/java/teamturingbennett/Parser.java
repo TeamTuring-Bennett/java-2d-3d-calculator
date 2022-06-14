@@ -12,21 +12,14 @@ public class Parser {
     private int val;    // keep track of the last char we consumed
     private String input;
 
-    /**
-     * Constructor for our expression object, requires
-     * a hashmap to use for looking up operations
-     */
+    
     public Parser() {
         this.map = new HashMap<>();
         initFuncMap();
         reset();
     }
 
-    /**
-     * Populate our function map to lookup
-     * actual math functions, as DoubleUnaryOperations,
-     * based on input string/character.
-     */
+    
     private void initFuncMap() {
         map.put("sin", Math::sin);
         map.put("cos", Math::cos);
@@ -43,20 +36,12 @@ public class Parser {
         map.put("cot", (val) -> (1.0 / Math.tan(val)));
     }
 
-    /**
-     * advance our parser to look at the
-     * next character in the expression
-     */
+    
     private void next() {
         val = (++pos < input.length() ? input.charAt(pos) : -1);
     }
 
-    /**
-     * consume the current character we're evaluating;
-     * this advances the parser by calling next()
-     * @param c the character to test/consume
-     * @return  true if we consumed the character, otherwise false
-     */
+    
     private boolean consume(char c) {
         if (val == c) {
             next();
@@ -65,12 +50,7 @@ public class Parser {
         return false;
     }
 
-    /**
-     * main parse method, starts the process
-     * of building our recursive expression tree
-     *
-     * @return  the final, compiled Expression/tree
-     */
+    
     private Expression parse() {
         next(); //consume the next character
         Expression x = parseTier1();
@@ -80,12 +60,7 @@ public class Parser {
         return x;
     }
 
-    /**
-     * parseTier1 -> handles lowest precedence operators;
-     * e.g. addition/subtraction
-     *
-     * @return  the compiled child expression
-     */
+    
     private Expression parseTier1() {
         Expression x = parseTier2();
         while (true) {
@@ -101,12 +76,7 @@ public class Parser {
         }
     }
 
-    /**
-     * parseTier2 -> handles next tier precedence;
-     * e.g. multiplication/division/modular division
-     *
-     * @return  the compiled child expression
-     */
+    
     private Expression parseTier2() {
         Expression x = parseTier3();
         while (true) {
@@ -125,13 +95,7 @@ public class Parser {
         }
     }
 
-    /**
-     * parseTier3 -> handles exponentiation, including
-     * nth-roots (fractional exponents); next to highest
-     * precedence before identity and unary functions;
-     *
-     * @return  the compiled child expression
-     */
+    
     private Expression parseTier3() {
         Expression x = parseTier4();
         while (true) {
@@ -148,12 +112,7 @@ public class Parser {
         }
     }
 
-    /**
-     * parseTier4 -> handles the highest tier operator
-     * precedence; unary functions, parens, etc.
-     *
-     * @return  the compiled child expression
-     */
+    
     private Expression parseTier4() {
         int start = this.pos;
         Expression x;   // declare the Expression we're going to return
@@ -197,43 +156,25 @@ public class Parser {
         }
     }
 
-    /**
-     * isNumber: check to see if the character we're
-     * currently evaluating is between 0-9, or '.'
-     * @return true if number or period, otherwise false
-     */
+   
     private boolean isNumber() {
         return Character.isDigit(val) || val == '.';
     }
 
-    /**
-     * isAlpha: check to see if the character we're
-     * currently evaluating is between a-z
-     * @return  true if a letter, otherwise false
-     */
+    
     private boolean isAlpha() {
         return Character.isAlphabetic(val) &&
 	        !(val == '(' || val == ')');
     }
 
-    /**
-     * reset the parser to prepare for next expression
-     */
+    
     private void reset() {
         this.pos = -1;  // set the starting position for our loop/parser
         this.val = -1;
         this.input = "";
     }
 
-    /**
-     * format a given expression, as a string, to remove
-     * any 'decorative' (read: 'pretty') labels/symbols
-     * and replace them with proper math symbols, or special
-     * flags/symbols used elsewhere in the parser
-     *
-     * @param in    the expression to clean/format, as string
-     * @return      the properly formatted expression
-     */
+    
     private String formatInput(String in) {
         return in.replace(" ", "")    // strip spaces
                 .replace("ⁿ√x", "@")    // use '@' to denote 'nth' roots

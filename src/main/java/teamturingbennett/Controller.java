@@ -1,6 +1,5 @@
 /*
     Controller.java
-
     The main view controller for our calculator;
  */
 package teamturingbennett;
@@ -35,9 +34,7 @@ public class Controller implements Initializable {
     private final Parser parser;
     private final ObservableList<GraphableFunc> userFunctions;
 
-    /**
-     * Constructor for our controller
-     */
+    
     public Controller() {
         this.output = new SimpleStringProperty("");
         this.parser = new Parser();
@@ -60,23 +57,13 @@ public class Controller implements Initializable {
     @FXML private NumberAxis yAxis;
     @FXML private Slider negXSlider, negYSlider, posXSlider, posYSlider;
 
-    /**
-     * Event Handler for number key presses
-     * @param e     the ActionEvent, from a button
-     *              'on action' to respond to
-     */
+    
     @FXML void buttonHandler(ActionEvent e) {
         String key = ((Button) e.getSource()).getText();
         processInput(key);
     }
 
-    /**
-     * Parses the actual input now for scientific mode
-     * @param key   the last input, as a string
-     *              either the keycode from a keyevent
-     *              or the button .label text from
-     *              an actionevent
-     */
+   
     private void processInput(String key) {
         String curr = output.get(); // grab existing output for efficiency
         // check for error string and clear it.
@@ -109,20 +96,12 @@ public class Controller implements Initializable {
         }
     }
 
-    /**
-     * Make sure the output string/display isn't empty
-     * before trying to either delete a character, or
-     * clear the entire output
-     * @return  true if output.get() is empty/blank
-     */
+   
     private boolean noEntry() {
         return output.get().isEmpty() || output.get().isBlank();
     }
 
-    /**
-     * Hands off computation to the parser class
-     * and catches errors accordingly
-     */
+   
     private void computeNow() {
         try {
             Expression x = parser.eval(output.get());
@@ -137,11 +116,7 @@ public class Controller implements Initializable {
         }
     }
 
-    /**
-     * Event handler for keyboard input instead of
-     * our GUI/buttons
-     * @param e     the keyEvent to process
-     */
+    
     private void keyHandler(KeyEvent e) {
         KeyCode key = e.getCode();
         switch (key) {
@@ -155,13 +130,7 @@ public class Controller implements Initializable {
         }
     }
 
-    /**
-     * parseFuncInput: creates a GraphableFunc object
-     * from a given user input string, to later be
-     * plotted/graphed
-     * @param e the tableCell edit event to process, used
-     *          to get the raw input string
-     */
+    
     private void parseFuncInput(CellEditEvent<GraphableFunc, String> e) {
         GraphableFunc func = userFuncTable.getSelectionModel().getSelectedItem();
         String raw = e.getNewValue();
@@ -173,13 +142,7 @@ public class Controller implements Initializable {
         this.graphNow(func);
     }
 
-    /**
-     * plots a user function as a data series, in a
-     * javafx line chart, with resolution equal to
-     * min tick values
-     * @param func  the graphablefunction object to
-     *              parse and graph
-     */
+    
     private void graphNow(GraphableFunc func) {
         Series<Double, Double> data = func.getData();  // get the data series from the function object
         if (!graphChart.getData().contains(data)) {     // new function, add the data series to the chart
@@ -209,19 +172,12 @@ public class Controller implements Initializable {
 	    return p.matcher(in).find();
     }
 
-    /**
-     * Add a new, blank/empty row in our user function/
-     * graphing input table
-     */
+   
     private void addFunctionRow() {
         userFunctions.add(new GraphableFunc(userFunctions.size()));
     }
 
-    /**
-     * Initialize the tableview for users to input
-     * functions to be evaluated by the graphing
-     * mode of our calculator.
-     */
+    
     private void initTable() {
         checkBoxCol.setCellValueFactory(cellData -> cellData.getValue().checkedProperty());
         checkBoxCol.setCellFactory(tc -> new CheckBoxTableCell<>());
@@ -233,10 +189,7 @@ public class Controller implements Initializable {
         userFuncTable.setItems(userFunctions);
     }
 
-    /**
-     * Initialize the chart/graph view:
-     * turn of legends, turn off symbols, etc.
-     */
+    
     private void initGraph() {
         // bind the slider positions to relevant axis upper/lower bounds
         xAxis.lowerBoundProperty().bind(negXSlider.valueProperty());
@@ -248,11 +201,7 @@ public class Controller implements Initializable {
         yAxis.setTickLabelFormatter(new AxisFormatter());
     }
 
-    /**
-     * The initialize method for our fxml controller
-     * @param url
-     * @param resourceBundle
-     */
+   
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // bind our output display/label
         this.display.textProperty().bind(this.output);

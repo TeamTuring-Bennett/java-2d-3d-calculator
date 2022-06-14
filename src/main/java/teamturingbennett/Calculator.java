@@ -10,7 +10,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -28,8 +27,6 @@ public class Calculator extends Application {
         stage.setResizable(true);
         stage.initStyle(StageStyle.UNIFIED);
         stage.setTitle("Calculator");
-        //stage.getIcons().add(new Image(getClass().getResource("src/main/resources/teamturingbennett/Calculator-icon.png").toExternalForm()));
-        // THIS WON"T WORK I DON'T KNOW WHY
         stage.show();
     }
 
